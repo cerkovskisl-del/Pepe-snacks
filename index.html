@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Našķoties Cepumi | Pašcepti Gardumi</title>
+    <title>Našķoties | Premium Pašcepti Gardumi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4A2E2B;
-            --secondary: #C86D51;
-            --accent: #E8A87C;
-            --bg: #FAF5EF;
-            --card-bg: #FFFFFF;
-            --text: #2D1E1B;
-            --text-light: #7A635E;
-            --btn-color: #0075FF;
+            --primary: #3A2318;
+            --primary-light: #5C3A29;
+            --secondary: #D97E5A;
+            --accent: #E6C8B1;
+            --bg-main: #FCF9F6;
+            --white: #FFFFFF;
+            --text-dark: #2B1D16;
+            --text-muted: #735C50;
+            --border-color: #E8DCD1;
+            --success: #2E7D32;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -25,29 +28,38 @@
             padding: 0;
         }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
+        html {
+            scroll-behavior: smooth;
         }
 
-        h1, h2, h3 {
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .serif {
             font-family: 'Playfair Display', serif;
         }
 
-        header {
-            background-color: var(--card-bg);
-            padding: 1.2rem 2rem;
-            border-bottom: 1px solid #EFE4D8;
+        /* Navigācija */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(58, 35, 24, 0.03);
         }
 
-        .header-container {
-            max-width: 1100px;
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -56,97 +68,167 @@
         .logo {
             text-decoration: none;
             color: var(--primary);
-            font-size: 1.6rem;
-            font-weight: 800;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Sekcija */
         .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 4rem 1rem 3rem;
-            background: linear-gradient(180deg, #FFFFFF 0%, var(--bg) 100%);
+            color: var(--white);
+            background: linear-gradient(rgba(58, 35, 24, 0.4), rgba(58, 35, 24, 0.6)), url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeIn 1s ease-out;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            color: var(--primary);
+            font-size: 4rem;
             margin-bottom: 1rem;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 620px;
-            margin: 0 auto;
-            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #BE6444;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(217, 126, 90, 0.3);
+        }
+
+        /* Konteiners */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem 4rem;
+            padding: 5rem 2rem;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 2.5rem;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
             margin-bottom: 4rem;
         }
 
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Produktu Režģis */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
         .product-card {
-            background: var(--card-bg);
-            border-radius: 20px;
+            background: var(--white);
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #EFE4D8;
-            box-shadow: 0 10px 25px rgba(74, 46, 43, 0.04);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(74, 46, 43, 0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(58, 35, 24, 0.08);
         }
 
         .product-image {
             width: 100%;
-            height: 200px;
+            height: 240px;
             object-fit: cover;
-            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .image-wrapper {
+            overflow: hidden;
         }
 
         .product-body {
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .product-title {
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             color: var(--primary);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
         }
 
         .product-price {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--secondary);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .product-desc {
+            color: var(--text-muted);
             font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             flex-grow: 1;
         }
 
@@ -154,523 +236,367 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #FAF2EB;
-            border-radius: 30px;
-            padding: 0.4rem 0.8rem;
+            background-color: var(--bg-main);
+            border-radius: 40px;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
         }
 
         .qty-btn {
-            background: white;
-            border: 1px solid #E0D0C2;
-            width: 32px;
-            height: 32px;
+            background: var(--white);
+            border: none;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            font-size: 1.1rem;
-            font-weight: bold;
+            font-size: 1.2rem;
             color: var(--primary);
             cursor: pointer;
-            transition: all 0.2s;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         .qty-btn:hover {
-            background: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
+            background: var(--primary);
+            color: var(--white);
         }
 
         .qty-value {
-            font-weight: 700;
-            font-size: 1.05rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary);
+            width: 30px;
+            text-align: center;
+        }
+
+        /* Pasūtīšanas Sekcija */
+        .order-section {
+            background-color: var(--bg-main);
+            border-top: 1px solid var(--border-color);
+            padding: 5rem 0;
         }
 
         .order-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            background: var(--card-bg);
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--white);
             border-radius: 24px;
-            padding: 2.5rem;
-            border: 1px solid #EFE4D8;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            padding: 3rem;
+            box-shadow: 0 20px 50px rgba(58, 35, 24, 0.05);
         }
 
-        @media (max-width: 850px) {
-            .order-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .cart-box {
-            background-color: #FAF4EF;
-            padding: 1.8rem;
-            border-radius: 18px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .cart-summary h3, .checkout-form h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .cart-list {
             list-style: none;
-            margin: 1.2rem 0;
-            max-height: 280px;
-            overflow-y: auto;
+            margin-bottom: 2rem;
         }
 
         .cart-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.7rem 0;
-            border-bottom: 1px dashed #E0D3C7;
-            font-size: 0.95rem;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .cart-item-name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            color: var(--primary);
         }
 
         .cart-total {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
             display: flex;
             justify-content: space-between;
-            padding-top: 1rem;
-            border-top: 2px solid #E0D0C2;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--accent);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        /* Forma */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
             font-size: 0.9rem;
-            color: var(--primary);
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
+        .form-control {
             width: 100%;
-            padding: 0.85rem;
-            border: 1px solid #E0D3C5;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border-color);
             border-radius: 12px;
-            font-size: 0.95rem;
-            background: #FFFDFB;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--bg-main);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
             outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus, 
-        .form-group textarea:focus {
             border-color: var(--secondary);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(217, 126, 90, 0.1);
         }
 
-        .btn-pay {
+        .btn-checkout {
             width: 100%;
-            background-color: var(--btn-color);
-            color: white;
-            padding: 1.1rem;
-            border-radius: 14px;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.2rem;
+            border: none;
+            border-radius: 12px;
             font-size: 1.1rem;
             font-weight: 700;
-            border: none;
             cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+            transition: var(--transition);
             margin-top: 1rem;
-            text-decoration: none;
         }
 
-        .btn-pay:hover {
-            background-color: #005ECC;
+        .btn-checkout:hover {
+            background-color: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 117, 255, 0.25);
         }
 
-        .btn-pay:disabled {
-            background-color: #D0D7DE;
+        .btn-checkout:disabled {
+            background-color: #D1C5BD;
             cursor: not-allowed;
             transform: none;
-            box-shadow: none;
         }
 
+        /* Kājene */
         footer {
             background-color: var(--primary);
-            color: #EFE4D8;
+            color: var(--accent);
+            padding: 4rem 2rem 2rem;
             text-align: center;
-            padding: 2.5rem 1rem;
-            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-text {
+            color: rgba(230, 200, 177, 0.7);
             font-size: 0.9rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(230, 200, 177, 0.1);
+        }
+
+        /* Animācijas */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responzivitāte */
+        @media (max-width: 900px) {
+            .order-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 2rem;
+            }
+            .hero h1 { font-size: 3rem; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">✨ Našķoties Cepumi</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo serif">Našķoties.</a>
+            <ul class="nav-links">
+                <li><a href="#produkti">Gardumi</a></li>
+                <li><a href="#pasutit">Pasūtīt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="serif">Mirkļi, kas kūst uz mēles</h1>
+            <p>Rūpīgi izmeklētas sastāvdaļas, gadiem slīpētas receptes un mīlestība katrā kumosā. Iepriecini sevi un savos mīļos.</p>
+            <a href="#produkti" class="btn-primary">Izvēlēties Našķus</a>
         </div>
     </header>
 
-    <section class="hero">
-        <h1>Īsti mājās cepti našķi</h1>
-        <p>Gardi, smaržīgi un ar mīlestību cepti cepumi iedvesmojoties no Našķoties receptēm. Izvēlies savus mīļākos!</p>
-    </section>
-
-    <div class="container">
-        <h2 class="section-title">Mūsu Našķi</h2>
+    <section id="produkti" class="container">
+        <div class="section-header">
+            <h2 class="serif">Mūsu Gardumu Kolekcija</h2>
+            <p>Katrs cepums ir roku darbs, cepts tieši pirms piegādes, lai garantētu nevainojamu svaigumu un garšas baudījumu.</p>
+        </div>
         
         <div class="products-grid">
 
-            <!-- 1. Produkts -->
+            <!-- Produkts 1 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80" alt="Šokolādes cepumi" class="product-image">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80" alt="Šokolādes cepumi" class="product-image">
+                </div>
                 <div class="product-body">
-                    <h3 class="product-title">Šokolādes & Jūras Sāls</h3>
+                    <h3 class="product-title serif">Šokolādes & Jūras Sāls</h3>
                     <div class="product-price">€ 5.00 / 200g</div>
-                    <p class="product-desc">Sviesta cepumi ar izkusušiem tumšās šokolādes gabaliņiem un jūras sāls pārslām.</p>
+                    <p class="product-desc">Bagātīgi sviesta cepumi ar izkusušiem tumšās Beļģijas šokolādes gabaliņiem, akcentēti ar smalkām jūras sāls pārslām.</p>
                     <div class="qty-controls">
-                        <button class="qty-btn" onclick="updateQty('p1', -1)">-</button>
+                        <button type="button" class="qty-btn" onclick="updateQty('p1', -1)">-</button>
                         <span class="qty-value" id="p1-qty">0</span>
-                        <button class="qty-btn" onclick="updateQty('p1', 1)">+</button>
+                        <button type="button" class="qty-btn" onclick="updateQty('p1', 1)">+</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. Produkts -->
+            <!-- Produkts 2 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80" alt="Cukura cepumi" class="product-image">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1618923850106-65be79730248?auto=format&fit=crop&w=800&q=80" alt="Sviesta cepumi" class="product-image">
+                </div>
                 <div class="product-body">
-                    <h3 class="product-title">Sviesta & Vaniļas Trauslie</h3>
+                    <h3 class="product-title serif">Sviesta & Vaniļas</h3>
                     <div class="product-price">€ 4.50 / 200g</div>
-                    <p class="product-desc">Mutes kūstoši sviesta cepumi ar īsto Madagaskaras vaniļu.</p>
+                    <p class="product-desc">Klasiski, mutes kūstoši sviesta cepumi, kas bagātināti ar augstākās kvalitātes Madagaskaras vaniļu.</p>
                     <div class="qty-controls">
-                        <button class="qty-btn" onclick="updateQty('p2', -1)">-</button>
+                        <button type="button" class="qty-btn" onclick="updateQty('p2', -1)">-</button>
                         <span class="qty-value" id="p2-qty">0</span>
-                        <button class="qty-btn" onclick="updateQty('p2', 1)">+</button>
+                        <button type="button" class="qty-btn" onclick="updateQty('p2', 1)">+</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 3. Produkts -->
+            <!-- Produkts 3 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=600&q=80" alt="Auzu cepumi" class="product-image">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=800&q=80" alt="Auzu cepumi" class="product-image">
+                </div>
                 <div class="product-body">
-                    <h3 class="product-title">Auzu, Medus & Dzērveņu</h3>
+                    <h3 class="product-title serif">Auzu, Medus & Dzērveņu</h3>
                     <div class="product-price">€ 4.80 / 200g</div>
-                    <p class="product-desc">Sātīgi auzu cepumi ar lauku medu un žāvētām Latvijas dzērvenēm.</p>
+                    <p class="product-desc">Kraukšķīgi auzu pārslu cepumi ar vietējo saimniecību medu un sulīgām, žāvētām Latvijas dzērvenēm.</p>
                     <div class="qty-controls">
-                        <button class="qty-btn" onclick="updateQty('p3', -1)">-</button>
+                        <button type="button" class="qty-btn" onclick="updateQty('p3', -1)">-</button>
                         <span class="qty-value" id="p3-qty">0</span>
-                        <button class="qty-btn" onclick="updateQty('p3', 1)">+</button>
+                        <button type="button" class="qty-btn" onclick="updateQty('p3', 1)">+</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 4. Produkts -->
+            <!-- Produkts 4 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Karameles cepumi" class="product-image">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" alt="Karameles cepumi" class="product-image">
+                </div>
                 <div class="product-body">
-                    <h3 class="product-title">Mājas Karameles & Sviesta</h3>
+                    <h3 class="product-title serif">Mājas Karameles</h3>
                     <div class="product-price">€ 5.20 / 200g</div>
-                    <p class="product-desc">Mīksti cepumi ar staipīgu mājas vārītās karameles pildījumu.</p>
+                    <p class="product-desc">Mīksti, piesātināti cepumi ar staipīgu, pašu vārītas karameles sirdi. Īstens baudījums saldummīļiem.</p>
                     <div class="qty-controls">
-                        <button class="qty-btn" onclick="updateQty('p4', -1)">-</button>
+                        <button type="button" class="qty-btn" onclick="updateQty('p4', -1)">-</button>
                         <span class="qty-value" id="p4-qty">0</span>
-                        <button class="qty-btn" onclick="updateQty('p4', 1)">+</button>
+                        <button type="button" class="qty-btn" onclick="updateQty('p4', 1)">+</button>
                     </div>
                 </div>
             </div>
 
         </div>
+    </section>
 
-        <div class="order-layout">
-            <div class="cart-box">
-                <div>
-                    <h3 style="color: var(--primary); font-size: 1.5rem;">Tavs Grozs</h3>
-                    <ul class="cart-list" id="cart-list">
-                        <li style="color: var(--text-light); font-style: italic;">Izvēlies vismaz vienu našķi no saraksta!</li>
-                    </ul>
-                </div>
-                <div class="cart-total">
-                    <span>Kopā:</span>
-                    <span id="total-price">€ 0.00</span>
-                </div>
+    <section id="pasutit" class="order-section">
+        <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-header">
+                <h2 class="serif">Noformēt Pasūtījumu</h2>
+                <p>Aizpildiet informāciju piegādei un norēķinieties ērti ar Revolut.</p>
             </div>
 
-            <form id="orderForm" onsubmit="handlePayment(event)">
-                <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1.2rem;">Piegādes Dati</h3>
+            <div class="order-layout">
                 
-                <div class="form-group">
-                    <label for="name">Vārds, Uzvārds *</label>
-                    <input type="text" id="name" placeholder="Piem. Anna Kalniņa" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Tālrunis *</label>
-                    <input type="tel" id="phone" placeholder="+371 20000000" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="delivery">Piegādes veids *</label>
-                    <select id="delivery">
-                        <option>Omniva Pakomāts</option>
-                        <option>DPD Pakomāts</option>
-                        <option>Saņemšana uz vietas</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="address">Pakomāta adrese vai Piezīmes *</label>
-                    <textarea id="address" rows="2" placeholder="Norādi pakomāta nosaukumu..." required></textarea>
-                </div>
-
-                <button type="submit" class="btn-pay" id="payBtn" disabled>
-                    Apmaksāt (<span id="btn-price">€ 0.00</span>)
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Našķoties Cepumu Veikaliņš. Cepts ar mīlestību.</p>
-    </footer>
-
-    <script>
-        const products = {
-            p1: { name: "Šokolādes & Jūras Sāls", price: 5.00, qty: 0 },
-            p2: { name: "Sviesta & Vaniļas Trauslie", price: 4.50, qty: 0 },
-            p3: { name: "Auzu, Medus & Dzērveņu", price: 4.80, qty: 0 },
-            p4: { name: "Mājas Karameles & Sviesta", price: 5.20, qty: 0 }
-        };
-
-        // Tiešā saite uz tavu norādīto adresi
-        const EXACT_PAYMENT_URL = "https://revolut.me/igorsyeqd";
-
-        function updateQty(id, change) {
-            if (products[id].qty + change >= 0) {
-                products[id].qty += change;
-                document.getElementById(`${id}-qty`).innerText = products[id].qty;
-                renderCart();
-            }
-        }
-
-        function renderCart() {
-            const cartList = document.getElementById("cart-list");
-            const totalPriceEl = document.getElementById("total-price");
-            const btnPriceEl = document.getElementById("btn-price");
-            const payBtn = document.getElementById("payBtn");
-
-            cartList.innerHTML = "";
-            let total = 0;
-            let count = 0;
-
-            for (const id in products) {
-                const item = products[id];
-                if (item.qty > 0) {
-                    const itemTotal = item.qty * item.price;
-                    total += itemTotal;
-                    count += item.qty;
-
-                    const li = document.createElement("li");
-                    li.className = "cart-item";
-                    li.innerHTML = `
-                        <span>${item.name} (x${item.qty})</span>
-                        <strong>€ ${itemTotal.toFixed(2)}</strong>
-                    `;
-                    cartList.appendChild(li);
-                }
-            }
-
-            if (count === 0) {
-                cartList.innerHTML = '<li style="color: var(--text-light); font-style: italic;">Izvēlies vismaz vienu našķi no saraksta!</li>';
-                payBtn.disabled = true;
-            } else {
-                payBtn.disabled = false;
-            }
-
-            const formattedTotal = "€ " + total.toFixed(2);
-            totalPriceEl.innerText = formattedTotal;
-            btnPriceEl.innerText = formattedTotal;
-        }
-
-        function handlePayment(event) {
-            event.preventDefault();
-
-            // Pāradresē tieši uz norādīto saiti https://revolut.me/igorsyeqd
-            window.location.href = EXACT_PAYMENT_URL;
-        }
-    </script>
-</body>
-</html>                     <button class="qty-btn" onclick="updateQty('p2', -1)">-</button>
-                        <span class="qty-value" id="p2-qty">0</span>
-                        <button class="qty-btn" onclick="updateQty('p2', 1)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Produkts -->
-            <div class="product-card">
-                <div class="product-badge">🥜</div>
-                <div class="product-body">
-                    <h3 class="product-title">Pistāciju & Baltās Šokolādes</h3>
-                    <div class="product-price">€ 5.50 / 200g</div>
-                    <p class="product-desc">Bagātīgi cepumi ar kapātām pistācijām un krēmīgu balto šokolādi.</p>
-                    <div class="qty-controls">
-                        <button class="qty-btn" onclick="updateQty('p3', -1)">-</button>
-                        <span class="qty-value" id="p3-qty">0</span>
-                        <button class="qty-btn" onclick="updateQty('p3', 1)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. Produkts -->
-            <div class="product-card">
-                <div class="product-badge">🍯</div>
-                <div class="product-body">
-                    <h3 class="product-title">Mājas Karameles & Sviesta</h3>
-                    <div class="product-price">€ 4.50 / 200g</div>
-                    <p class="product-desc">Kraukšķīgi cepumi ar staipīgu mājas vārītās karameles pildījumu.</p>
-                    <div class="qty-controls">
-                        <button class="qty-btn" onclick="updateQty('p4', -1)">-</button>
-                        <span class="qty-value" id="p4-qty">0</span>
-                        <button class="qty-btn" onclick="updateQty('p4', 1)">+</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Grozs un Pasūtīšana -->
-        <div class="order-layout">
-            <div class="cart-box">
-                <div>
-                    <h3 style="color: var(--primary); font-size: 1.5rem;">Tavs Grozs</h3>
+                <!-- Groza Kopsavilkums -->
+                <div class="cart-summary">
+                    <h3 class="serif">Jūsu Grozs</h3>
                     <ul class="cart-list" id="cart-list">
-                        <li style="color: var(--text-light); font-style: italic;">Izvēlies vismaz vienu našķi no saraksta!</li>
+                        <li style="color: var(--text-muted); font-style: italic; padding: 1rem 0;">Jūsu grozs pagaidām ir tukšs. Pievienojiet gardumus augstāk!</li>
                     </ul>
-                </div>
-                <div class="cart-total">
-                    <span>Kopā:</span>
-                    <span id="total-price">€ 0.00</span>
-                </div>
-            </div>
-
-            <form id="orderForm" onsubmit="handlePayment(event)">
-                <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1.2rem;">Piegādes Dati</h3>
-                
-                <div class="form-group">
-                    <label for="name">Vārds, Uzvārds *</label>
-                    <input type="text" id="name" placeholder="Piem. Anna Kalniņa" required>
+                    <div class="cart-total">
+                        <span>Kopsumma</span>
+                        <span id="total-price">€ 0.00</span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="phone">Tālrunis *</label>
-                    <input type="tel" id="phone" placeholder="+371 20000000" required>
-                </div>
+                <!-- Checkout Forma -->
+                <div class="checkout-form">
+                    <h3 class="serif">Piegādes Informācija</h3>
+                    <form id="orderForm" onsubmit="handlePayment(event)">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Vārds</label>
+                                <input type="text" id="name" class="form-control" placeholder="Jūsu vārds" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Uzvārds</label>
+                                <input type="text" id="surname" class="form-control" placeholder="Jūsu uzvārds" required>
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label for="delivery">Piegādes veids *</label>
-                    <select id="delivery">
-                        <option>Omniva Pakomāts</option>
-                        <option>DPD Pakomāts</option>
-                        <option>Saņemšana uz vietas</option>
-                    </select>
-                </div>
+                        <div class="form-row">
+                            <div class="form-group full">
+                                <label for="phone">Tālruņa numurs</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+371 20000000" required>
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label for="address">Pakomāta adrese vai Piezīmes *</label>
-                    <textarea id="address" rows="2" placeholder="Norādi pakomāta nosaukumu..." required></textarea>
-                </div>
+                        <div class="form-group full">
+                            <label for="delivery">Piegādes veids</label>
+                            <select id="delivery" class="form-control">
+                                <option value="omniva">Omniva pakomāts</option>
+                                <option value="dpd">DPD pakomāts</option>
+                                <option value="pickup">Saņemšana uz vietas ceptuvē</option>
+                            </select>
+                        </div>
 
-                <button type="submit" class="btn-pay" id="payBtn" disabled>
-                    💳 Apmaksāt ar Revolut (<span id="btn-price">€ 0.00</span>)
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Našķoties Cepumu Veikaliņš. Cepts ar mīlestību.</p>
-    </footer>
-
-    <script>
-        const products = {
-            p1: { name: "Šokolādes & Jūras Sāls", price: 5.00, qty: 0 },
-            p2: { name: "Citronu & Melleņu", price: 4.80, qty: 0 },
-            p3: { name: "Pistāciju & Baltās Šokolādes", price: 5.50, qty: 0 },
-            p4: { name: "Mājas Karameles & Sviesta", price: 4.50, qty: 0 }
-        };
-
-        const REVOLUT_ME_URL = "https://revolut.me/igorsyeqd";
-
-        function updateQty(id, change) {
-            if (products[id].qty + change >= 0) {
-                products[id].qty += change;
-                document.getElementById(`${id}-qty`).innerText = products[id].qty;
-                renderCart();
-            }
-        }
-
-        function renderCart() {
-            const cartList = document.getElementById("cart-list");
-            const totalPriceEl = document.getElementById("total-price");
-            const btnPriceEl = document.getElementById("btn-price");
-            const payBtn = document.getElementById("payBtn");
-
-            cartList.innerHTML = "";
-            let total = 0;
-            let count = 0;
-
-            for (const id in products) {
-                const item = products[id];
-                if (item.qty > 0) {
-                    const itemTotal = item.qty * item.price;
-                    total += itemTotal;
-                    count += item.qty;
-
-                    const li = document.createElement("li");
-                    li.className = "cart-item";
-                    li.innerHTML = `
-                        <span>${item.name} (x${item.qty})</span>
-                        <strong>€ ${itemTotal.toFixed(2)}</strong>
-                    `;
-                    cartList.appendChild(li);
-                }
-            }
-
-            if (count === 0) {
-                cartList.innerHTML = '<li style="color: var(--text-light); font-style: italic;">Izvēlies vismaz vienu našķi no saraksta!</li>';
-                payBtn.disabled = true;
-            } else {
-                payBtn.disabled = false;
-            }
-
-            const formattedTotal = "€ " + total.toFixed(2);
-            totalPriceEl.innerText = formattedTotal;
-            btnPriceEl.innerText = formattedTotal;
-        }
-
-        function handlePayment(event) {
-            event.preventDefault();
-
-            let total = 0;
-            for (const id in products) {
-                if (products[id].qty > 0) {
-                    total += products[id].qty * products[id].price;
-                }
-            }
-
-            if (total === 0) return;
-
-            // Tiešā saite uz Revolut ar aprēķināto summu (https://revolut.me/igorsyeqd/EUR/XX.XX)
-            const targetUrl = `${REVOLUT_ME_URL}/EUR/${total.toFixed(2)}`;
-
-            // Atver Revolut apmaksas saiti
-            window.open(targetUrl, '_blank');
-        }
-    </script>
-</body>
-</html>
+                        <div cla
