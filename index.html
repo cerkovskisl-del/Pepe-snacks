@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Našķoties Iedvesmotie Cepumi | Pašcepti Gardumi</title>
+    <title>Našķoties Cepumi | Pašcepti Gardumi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
             --card-bg: #FFFFFF;
             --text: #2D1E1B;
             --text-light: #7A635E;
-            --revolut-blue: #0075FF;
+            --btn-color: #0075FF;
         }
 
         * {
@@ -32,7 +32,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, .logo-text {
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
         }
 
@@ -116,14 +116,11 @@
             box-shadow: 0 15px 35px rgba(74, 46, 43, 0.08);
         }
 
-        .product-badge {
-            background-color: #F8ECE4;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4.5rem;
-            user-select: none;
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
         }
 
         .product-body {
@@ -186,7 +183,6 @@
             font-size: 1.05rem;
         }
 
-        /* Grozs & Apmaksa */
         .order-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -270,7 +266,7 @@
 
         .btn-pay {
             width: 100%;
-            background-color: var(--revolut-blue);
+            background-color: var(--btn-color);
             color: white;
             padding: 1.1rem;
             border-radius: 14px;
@@ -284,6 +280,7 @@
             justify-content: center;
             gap: 0.5rem;
             margin-top: 1rem;
+            text-decoration: none;
         }
 
         .btn-pay:hover {
@@ -319,21 +316,21 @@
 
     <section class="hero">
         <h1>Īsti mājās cepti našķi</h1>
-        <p>Gardi, smaržīgi un ar mīlestību cepti cepumi. Biezpiena, šokolādes un karameles garšas tieši no krāsns.</p>
+        <p>Gardi, smaržīgi un ar mīlestību cepti cepumi iedvesmojoties no Našķoties receptēm. Izvēlies savus mīļākos!</p>
     </section>
 
     <div class="container">
-        <h2 class="section-title">Izvēlies savus našķus</h2>
+        <h2 class="section-title">Mūsu Našķi</h2>
         
         <div class="products-grid">
 
             <!-- 1. Produkts -->
             <div class="product-card">
-                <div class="product-badge">🍫</div>
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80" alt="Šokolādes cepumi" class="product-image">
                 <div class="product-body">
                     <h3 class="product-title">Šokolādes & Jūras Sāls</h3>
                     <div class="product-price">€ 5.00 / 200g</div>
-                    <p class="product-desc">Klasiskie sviesta cepumi ar izkusušiem Beļģijas šokolādes gabaliņiem un jūras sāls pārslām.</p>
+                    <p class="product-desc">Sviesta cepumi ar izkusušiem tumšās šokolādes gabaliņiem un jūras sāls pārslām.</p>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="updateQty('p1', -1)">-</button>
                         <span class="qty-value" id="p1-qty">0</span>
@@ -344,13 +341,170 @@
 
             <!-- 2. Produkts -->
             <div class="product-card">
-                <div class="product-badge">🍋</div>
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80" alt="Cukura cepumi" class="product-image">
                 <div class="product-body">
-                    <h3 class="product-title">Citronu & Melleņu Maigie</h3>
-                    <div class="product-price">€ 4.80 / 200g</div>
-                    <p class="product-desc">Svaigi, mīksti cepumi ar svaiga citrona miziņu un sulīgām meža mellenēm.</p>
+                    <h3 class="product-title">Sviesta & Vaniļas Trauslie</h3>
+                    <div class="product-price">€ 4.50 / 200g</div>
+                    <p class="product-desc">Mutes kūstoši sviesta cepumi ar īsto Madagaskaras vaniļu.</p>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="updateQty('p2', -1)">-</button>
+                        <span class="qty-value" id="p2-qty">0</span>
+                        <button class="qty-btn" onclick="updateQty('p2', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Produkts -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=600&q=80" alt="Auzu cepumi" class="product-image">
+                <div class="product-body">
+                    <h3 class="product-title">Auzu, Medus & Dzērveņu</h3>
+                    <div class="product-price">€ 4.80 / 200g</div>
+                    <p class="product-desc">Sātīgi auzu cepumi ar lauku medu un žāvētām Latvijas dzērvenēm.</p>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="updateQty('p3', -1)">-</button>
+                        <span class="qty-value" id="p3-qty">0</span>
+                        <button class="qty-btn" onclick="updateQty('p3', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Produkts -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Karameles cepumi" class="product-image">
+                <div class="product-body">
+                    <h3 class="product-title">Mājas Karameles & Sviesta</h3>
+                    <div class="product-price">€ 5.20 / 200g</div>
+                    <p class="product-desc">Mīksti cepumi ar staipīgu mājas vārītās karameles pildījumu.</p>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="updateQty('p4', -1)">-</button>
+                        <span class="qty-value" id="p4-qty">0</span>
+                        <button class="qty-btn" onclick="updateQty('p4', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="order-layout">
+            <div class="cart-box">
+                <div>
+                    <h3 style="color: var(--primary); font-size: 1.5rem;">Tavs Grozs</h3>
+                    <ul class="cart-list" id="cart-list">
+                        <li style="color: var(--text-light); font-style: italic;">Izvēlies vismaz vienu našķi no saraksta!</li>
+                    </ul>
+                </div>
+                <div class="cart-total">
+                    <span>Kopā:</span>
+                    <span id="total-price">€ 0.00</span>
+                </div>
+            </div>
+
+            <form id="orderForm" onsubmit="handlePayment(event)">
+                <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1.2rem;">Piegādes Dati</h3>
+                
+                <div class="form-group">
+                    <label for="name">Vārds, Uzvārds *</label>
+                    <input type="text" id="name" placeholder="Piem. Anna Kalniņa" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Tālrunis *</label>
+                    <input type="tel" id="phone" placeholder="+371 20000000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="delivery">Piegādes veids *</label>
+                    <select id="delivery">
+                        <option>Omniva Pakomāts</option>
+                        <option>DPD Pakomāts</option>
+                        <option>Saņemšana uz vietas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Pakomāta adrese vai Piezīmes *</label>
+                    <textarea id="address" rows="2" placeholder="Norādi pakomāta nosaukumu..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-pay" id="payBtn" disabled>
+                    Apmaksāt (<span id="btn-price">€ 0.00</span>)
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Našķoties Cepumu Veikaliņš. Cepts ar mīlestību.</p>
+    </footer>
+
+    <script>
+        const products = {
+            p1: { name: "Šokolādes & Jūras Sāls", price: 5.00, qty: 0 },
+            p2: { name: "Sviesta & Vaniļas Trauslie", price: 4.50, qty: 0 },
+            p3: { name: "Auzu, Medus & Dzērveņu", price: 4.80, qty: 0 },
+            p4: { name: "Mājas Karameles & Sviesta", price: 5.20, qty: 0 }
+        };
+
+        // Tiešā saite uz tavu norādīto adresi
+        const EXACT_PAYMENT_URL = "https://revolut.me/igorsyeqd";
+
+        function updateQty(id, change) {
+            if (products[id].qty + change >= 0) {
+                products[id].qty += change;
+                document.getElementById(`${id}-qty`).innerText = products[id].qty;
+                renderCart();
+            }
+        }
+
+        function renderCart() {
+            const cartList = document.getElementById("cart-list");
+            const totalPriceEl = document.getElementById("total-price");
+            const btnPriceEl = document.getElementById("btn-price");
+            const payBtn = document.getElementById("payBtn");
+
+            cartList.innerHTML = "";
+            let total = 0;
+            let count = 0;
+
+            for (const id in products) {
+                const item = products[id];
+                if (item.qty > 0) {
+                    const itemTotal = item.qty * item.price;
+                    total += itemTotal;
+                    count += item.qty;
+
+                    const li = document.createElement("li");
+                    li.className = "cart-item";
+                    li.innerHTML = `
+                        <span>${item.name} (x${item.qty})</span>
+                        <strong>€ ${itemTotal.toFixed(2)}</strong>
+                    `;
+                    cartList.appendChild(li);
+                }
+            }
+
+            if (count === 0) {
+                cartList.innerHTML = '<li style="color: var(--text-light); font-style: italic;">Izvēlies vismaz vienu našķi no saraksta!</li>';
+                payBtn.disabled = true;
+            } else {
+                payBtn.disabled = false;
+            }
+
+            const formattedTotal = "€ " + total.toFixed(2);
+            totalPriceEl.innerText = formattedTotal;
+            btnPriceEl.innerText = formattedTotal;
+        }
+
+        function handlePayment(event) {
+            event.preventDefault();
+
+            // Pāradresē tieši uz norādīto saiti https://revolut.me/igorsyeqd
+            window.location.href = EXACT_PAYMENT_URL;
+        }
+    </script>
+</body>
+</html>                     <button class="qty-btn" onclick="updateQty('p2', -1)">-</button>
                         <span class="qty-value" id="p2-qty">0</span>
                         <button class="qty-btn" onclick="updateQty('p2', 1)">+</button>
                     </div>
